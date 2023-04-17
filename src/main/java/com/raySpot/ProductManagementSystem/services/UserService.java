@@ -21,7 +21,7 @@ public interface UserService {
 
     User findUserByFirstName(String firstName);
 
-    Product createProduct(String product);
+//    Product createProduct(String product);
 
     User findUserById(String id);
 

@@ -9,6 +9,7 @@ import com.raySpot.ProductManagementSystem.dtos.responseDTO.UserDTO;
 import com.raySpot.ProductManagementSystem.exceptions.ProductManagementSystemException;
 import com.raySpot.ProductManagementSystem.exceptions.UserNotFoundException;
 import com.raySpot.ProductManagementSystem.models.User;
+import com.raySpot.ProductManagementSystem.repository.UserRepository;
 import com.raySpot.ProductManagementSystem.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
+    private UserRepository userRepository;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -126,12 +128,15 @@ public class UserController {
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
     }
-//    public String deleteUser(@RequestBody String userName){
-//        try{
-//            userService.deleteUser(userName);
-//            return "User deleted successfully";
-//        } catch (Exception exception){
-//            return "User does not exist!";
-//        }
+
+//    @GetMapping("/index")
+//    public String showUSerList(Model model){
+//        model.addAttribute("users", userRepository.findAll());
+//        return "index";
+//    }
+//
+//    @GetMapping("findAll")
+//    public String showSignupForm(User user){
+//        return "add-user";
 //    }
 }
